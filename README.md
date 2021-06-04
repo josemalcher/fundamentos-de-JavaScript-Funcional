@@ -159,8 +159,84 @@ console.log(sum(50,50))
 ```
 
 7. Parâmetros
+
+- [fundamentos\07-parameters.js](fundamentos\07-parameters.js)
+
+```javascript
+function logParams(a,b,c){
+  console.log(a,b,c)
+}
+logParams(1,2,3,4,5) // 1 2 3
+logParams(2,3) // 2 3 undefined
+logParams(2) // 2 undefined undefined
+logParams() // undefined undefined undefined
+
+function defaultParams(a,b,c = 0){
+  console.log(a,b,c)
+}
+defaultParams(1,2) // 1 2 0
+defaultParams(1) // 1 undefined 0
+
+// spred/rest
+function logNums(...nums){
+  console.log(Array.isArray(nums))
+  console.log(nums)
+  // for(let n of nums){
+  //   console.log(n)
+  // }
+}
+logNums(10,20,30)
+/*
+true
+10
+20
+30
+--------
+true
+[ 10, 20, 30 ]
+*/
+
+function sumALL(...nums){
+  let total = 0;
+  for(let n of nums){
+    total += n
+  }
+  return total
+}
+console.log(sumALL(1,2,3,4,5,6,7,8,9)) // 45
+```
+
 8. Desafio #01
 9. Desafio #01 - Resposta
+
+- [fundamentos\08-chanllege.js](fundamentos\08-chanllege.js)
+
+```javascript
+//create function
+function range(a , b , s = 1){
+  const n1   = b === undefined ? 1 : a;
+  const n2   = b === undefined ? a : b;
+  const step = n1 <= n2 ? Math.abs(s) : -Math.abs(s)
+
+  const nums = [];
+  for(let i = n1 ; n1 <= n2 ? i <= n2 : i >= n2 ; i += step){
+    nums.push(i);
+  }
+  return nums;
+}
+
+// range(5) -> [1,2,3,4,5]
+console.log(range(5))
+
+// range(6,11) -> [6,7,8,9,10,11]
+console.log(range(6,11))
+// range(10,19,2) -> [10,12,14,16,18]
+console.log(range(10,19,2))
+// range(6,2) -> [6,5,4,3,2]
+console.log(range(6,2))
+// range(8,-3, 4) -> [8,4,0]
+console.log(range(8,-3, 4))
+```
 
 [Voltar ao Índice](#indice)
 

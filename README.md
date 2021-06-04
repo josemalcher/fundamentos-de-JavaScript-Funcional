@@ -81,9 +81,84 @@ console.log(returnHiTo('Jose'))
 ```
 
 4. Anatomia da Função #02
+
+- [fundamentos\04-anatomy.js](fundamentos\04-anatomy.js)
+
+```javascript
+// Anonymous Function
+
+(function(a,b){
+    return a + b
+})
+
+// function expression
+ const sum = function(a,b){
+     return a + b
+ }
+ 
+ const result = sum(5, 5);
+ console.log(result)
+
+ const anotherSum = sum
+ console.log(anotherSum(10,10))
+
+```
+
 5. Anatomia da Função #03
+
+- [fundamentos\05-anatomy.js](fundamentos\05-anatomy.js)
+
+```javascript
+// function expression
+const increment1 = function(n){
+  return n + 1
+}
+
+// ARROW Function is always anonymous
+const increment2 = (n) => { 
+  return n + 1
+}
+
+const increment3 = n => { 
+  return n + 1
+}
+
+const increment4 = n => n + 1
+
+console.log(increment1(1))
+console.log(increment2(21))
+console.log(increment3(31))
+console.log(increment4(41))
+
+const sum = (a , b ) => a + b
+console.log(sum(50,50))
+```
+
 6. Anatomia da Função #04
-7. Parametros
+
+- [fundamentos\06-anatomy.js](fundamentos\06-anatomy.js)
+
+```javascript
+// Anonymous function
+// IIFE - Immediately Invoked Function Expression
+
+(function(a,b,c){
+  console.log(`Result ${a + b + c}`)
+})(10,20,30);
+
+(function(){
+  let x = 200
+  console.log(x)
+})();
+
+(()=> {
+  console.log('arrow #1')
+})();
+
+(() => console.log('arrow #2'))();
+```
+
+7. Parâmetros
 8. Desafio #01
 9. Desafio #01 - Resposta
 

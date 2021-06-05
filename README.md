@@ -246,7 +246,61 @@ console.log(range(8,-3, 4))
 ## <a name="parte3">3 - Seção 3: Programação Funcional</a>
 
 10. First-Class Function
+
+- [functional\10-First-Class-Function.js](functional\10-First-Class-Function.js)
+
+```javascript
+/*
+A programming language is sair to have
+First-class functions when functions in
+that language are treated like any other variable.
+*/
+
+const add = function(a, b){
+  return a + b
+}
+console.log(add(10,20))
+
+const subtract = function(a,b){
+  return a - b
+}
+console.log(subtract(30,20))
+
+const multiply = (x, y) => x * y
+console.log(multiply(10,20))
+
+```
+
 11. Higher-Order Function #01
+
+- [functional\11-Higher-Order-Function.js](functional\11-Higher-Order-Function.js)
+
+```javascript
+/*
+Function that operate on other function,
+either by talking them as arguments or by
+returning them, are called higher-order function.
+*/
+
+function run(fn){
+  //fn()
+  //return fn()
+  return `Result ${fn()}`
+}
+
+function sayHello(){
+  console.log('Hello!')
+}
+run(sayHello)
+
+run(function(){
+  console.log('run!!!')
+})
+
+const result = run(Math.random)
+console.log(result)
+```
+
 12. Higher-Order Function #02
 13. Map #01
 14. Map #02

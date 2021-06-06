@@ -352,9 +352,46 @@ console.log(result) // [ 7, 10, 8, 5 ]
 
 15. Filter #01
 
-
+![functional\img\filter-01.png](functional\img\filter-01.png)
 
 16. Filter #02
+
+- [functional\16-filter-01.js](functional\16-filter-01.js)
+
+```javascript
+const numbers = [1,2,3,4,5,6]
+
+console.log(numbers.filter(el => el > 0)) // [ 1, 2, 3, 4, 5, 6 ]
+
+const greaterThanZero = el => el > 0
+console.log(numbers.filter(greaterThanZero)) // [ 1, 2, 3, 4, 5, 6 ]
+
+const greaterThanTen = el => el > 10
+console.log(numbers.filter(greaterThanTen))// []
+
+const even = el => el % 2 === 0 
+console.log(numbers.filter(even)) // [ 2, 4, 6 ]
+
+const students = [
+  {name:  'Jose',   score: 6.8},
+  {name:  'Marcel', score: 9.8},
+  {name:  'Giga',   score: 7.8},
+  {name:  'Duda',   score: 4.8}
+]
+
+const greaterStudent = students => students.score >= 9
+console.log(students.filter(greaterStudent))// [ { name: 'Marcel', score: 9.8 } ]
+console.log(students)
+/* 
+[
+  { name: 'Jose', score: 6.8 },
+  { name: 'Marcel', score: 9.8 },
+  { name: 'Giga', score: 7.8 },
+  { name: 'Duda', score: 4.8 }
+]
+*/
+```
+
 17. Reduce #01
 18. Reduce #02
 19. Map, Filter e Reduce

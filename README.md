@@ -454,6 +454,132 @@ console.log(
 
 [Bônus - 54 aulas Gratuitas + Certificado](https://bit.ly/3kJfdDB)
 
+21. Desafio Map, Reduce e Filter
+
+22. Desafio Map, Reduce e Filter - Resposta
+
+- [Bonus-curso-cursocod3r\21-desafio_map-reduce-filter.js](Bonus-curso-cursocod3r\21-desafio_map-reduce-filter.js)
+
+```javascript
+const carrinho = [
+  {nome: 'caneta', qde: 10, preco: 1.99, fragil: false},
+  {nome: 'Impressora', qde: 1, preco: 89.99, fragil: true},
+  {nome: 'caderno', qde: 3, preco: 2.99, fragil: true},
+  {nome: 'Lapis', qde: 100, preco: 1.9, fragil: false},
+  {nome: 'Tesoura', qde: 30, preco: 2.99, fragil: true},
+]
+
+// filter, map, reduce
+
+// 1. fragil: true
+// 2. qde * preco 27.10 -> total
+// 3. medida totais
+
+const isfragil = item => item.fragil
+const getTotal = item => item.qde * item.preco
+const getMedia = (acc, el) => {
+  const novaQtde  = acc.qde + 1
+  const novoTotal = acc.total + el
+  return {
+    qde: novaQtde,
+    total: novoTotal,
+    media: novoTotal / novaQtde
+  } 
+}
+const mediaInicial = {qde: 0, total: 0, media: 0}
+
+const media = carrinho
+                      .filter(isfragil)
+                      .map(getTotal)
+                      .reduce(getMedia, mediaInicial)
+                      .media
+
+console.log(`A média é ${media}`)
+```
+
+
+23. Função Reduce #03
+
+24. Promise #01
+
+- [Bonus-curso-cursocod3r\24-Promise.js](Bonus-curso-cursocod3r\24-Promise.js)
+
+```javascript
+const primeiroElemento = arrayOuString => arrayOuString[0]
+const letraMinuscula   = letra => letra.toLowerCase()
+
+new Promise(function(resolve){
+  resolve(['Ana', 'Maria', 'Bia', 'Carlos'])
+})
+  .then(primeiroElemento)
+  .then(primeiroElemento)
+  .then(letraMinuscula)
+  //.then(v => console.log(v))
+  .then(console.log)
+```
+
+25. Promise #02
+
+- [Bonus-curso-cursocod3r\25-Promise.js](Bonus-curso-cursocod3r\25-Promise.js)
+
+```javascript
+function esperandoPor(tempo = 2000){
+  return new Promise(function(resolve){
+    setTimeout(function(){
+      console.log('Executando promisse...')
+      resolve()
+    }, tempo)
+  })
+}
+
+esperandoPor()
+              .then(()=> esperandoPor())
+              .then(esperandoPor)
+```
+
+26. Promise #03
+
+- [Bonus-curso-cursocod3r\26-Promise.js](Bonus-curso-cursocod3r\26-Promise.js)
+
+```javascript
+function gerarNumerosEntre(min, max){
+  if(min > max) [max, min] = [min, max]
+  return new Promise(resolve =>{
+    const fator = max - min + 1
+    const aleatorio = parseInt(Math.random() * fator) + min
+    resolve(aleatorio)
+  })
+}
+
+gerarNumerosEntre(1,60)
+                       .then(num => num * 10)
+                       .then(numX10 => `O numero gerado foi ${numX10}`)
+                       .then(console.log)
+```
+
+27. Desafio Promise
+
+28. Desafio Promise - Resposta
+
+29. Promise #04
+
+30. Promise #05
+
+31. Async/Await #01
+
+32. Async/Await #02
+
+33. OO #01
+
+34. OO #02
+
+35. OO #03
+
+36. Conclusão do Módulo
+
+37. Conclusão - 1/1
+
+
 [Voltar ao Índice](#indice)
 
 ---

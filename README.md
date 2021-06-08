@@ -587,7 +587,63 @@ lerArquivo(caminho)
 
 29. Promise #04
 
+- [Bonus-curso-cursocod3r/29-Promise.js](Bonus-curso-cursocod3r/29-Promise.js)
+
+```javascript
+function gerarNumerosEntre(min, max, tempo) {
+    if(min > max) [max, min] = [min, max]
+    return new Promise(resolve => {
+        setTimeout(function (){
+            const fator = max - min + 1
+            const aleatorio = parseInt(Math.random() * fator) + min
+            resolve(aleatorio)
+        }, tempo)
+    })
+}
+
+function gerarVariosNumeros(){
+    return Promise.all([
+        gerarNumerosEntre(1,60, 4000),
+        gerarNumerosEntre(1,60, 1000),
+        gerarNumerosEntre(1,60, 500),
+        gerarNumerosEntre(1,60, 100),
+        gerarNumerosEntre(1,60, 1500),
+    ])
+}
+
+gerarVariosNumeros().then(numeros => console.log(numeros));
+```
+
 30. Promise #05
+
+- [Bonus-curso-cursocod3r/30-Promise.js](Bonus-curso-cursocod3r/30-Promise.js)
+
+```javascript
+function funcionarOuNao(valor, chanceErro) {
+    return new Promise((resolve, reject) => {
+        try {
+            con.log('tempo');
+            if (Math.random() < chanceErro) {
+                reject('Ocorreu um erro');
+            } else {
+                resolve(valor)
+            }
+        } catch (e){
+            reject(e);
+        }
+    })
+}
+
+funcionarOuNao('Testando...', 0.5)
+    .then(v => `Valor: ${v}`)
+    .then(
+        v => consol.log(v),
+        err => console.log(`Error Esp.: ${err}`)
+    )
+    .then(()=> console.log('Quase fim!'))
+    .catch(err=>console.log('ERRO GERAL: ${err}'))
+    .then(()=> console.log('FIM'))
+```
 
 31. Async/Await #01
 

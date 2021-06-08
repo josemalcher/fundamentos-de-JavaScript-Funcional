@@ -6,12 +6,12 @@ function lerArquivo(caminho) {
         fs.readFile(caminho, function (_, conteudo){
             resolve(conteudo.toString());
         })
-        console.log('Depois de ler o arquivo')
+        //console.log('Depois de ler o arquivo')
     })
 }
 
 const caminho = path.join(__dirname, 'dados.txt');
-
+console.log(caminho)
 lerArquivo(caminho)
     .then(conteudo  => conteudo .split('\n'))
     .then(linhas    => linhas   .join(','))

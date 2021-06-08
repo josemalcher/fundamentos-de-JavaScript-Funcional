@@ -736,9 +736,126 @@ gerarMegaSena(25).then(console.log).catch(console.log);
 
 33. OO #01
 
+- [Bonus-curso-cursocod3r/33-OO.js](Bonus-curso-cursocod3r/33-OO.js)
+
+```javascript
+function Produto(nome, preco, desc = 0.50) {
+    this.nome = nome;
+    this.preco = preco;
+    this.desc = desc;
+
+    this.precoFinal = function () {
+        return this.preco * (1 - this.desc);
+    };
+
+}
+
+const p1 = new Produto('Caneta', 10);
+console.log(p1.nome)
+
+const p2 = new Produto('Geladeira', 5000);
+console.log(p2.nome);
+console.log(p2.preco);
+console.log(p2.precoFinal());
+```
+
 34. OO #02
 
+- [Bonus-curso-cursocod3r/34-OO.js](Bonus-curso-cursocod3r/34-OO.js)
+
+```javascript
+class Produto{
+    constructor(nome, preco, desc = 0.5) {
+        this.nome = nome
+        this.preco = preco
+        this.desc = desc
+    }
+
+    get nome(){
+        return `Produto: ${this._nome}`
+    }
+
+    set nome(nomeNome) {
+        this._nome = nomeNome.toUpperCase();
+    }
+
+    get preco(){
+        return this._preco;
+    }
+
+    set preco(novoPreco){
+        if (novoPreco >= 0) {
+            this._preco = novoPreco;
+        }
+    }
+
+    get PrecoFinal(){
+        return this.preco * (1 - this.desc);
+    }
+}
+
+const p1 = new Produto('Caneta', 10);
+p1.nome = 'caneta bic';
+p1.preco = -20;
+console.log(p1.nome)
+console.log(p1.preco)
+
+const p2 = new Produto('Geladeira', 10000, 0.8);
+console.log(p2.nome);
+console.log(p2.preco);
+console.log(p2.PrecoFinal);
+```
 35. OO #03
+
+- [Bonus-curso-cursocod3r/35-OO.js](Bonus-curso-cursocod3r/35-OO.js)
+
+```javascript
+function Produto(nome, preco, desc = 0.50) {
+    this.nome = nome;
+    this.preco = preco;
+    this._desc = desc;
+
+    this.precoFinal = function () {
+        return this.preco * (1 - this._desc);
+    };
+
+}
+
+Produto.prototype.log = function () {
+    console.log(`Nome: ${this.nome} Preco R$ ${this.preco}`)
+};
+
+Object.defineProperty(Produto.prototype, 'desc', {
+    get: function () {
+        return this._desc
+    },
+    set: function (novoDesc) {
+        if (novoDesc >= 0 && novoDesc <= 1) {
+            this._desc = novoDesc;
+        }
+    }
+})
+
+Object.defineProperty(Produto.prototype, 'descString', {
+    get: function () {
+        return `Desconto foi de ${this._desc * 100 }%`
+    }
+})
+
+const p1 = new Produto('Caneta', 10);
+console.log(p1.nome)
+p1.log();
+
+
+const p2 = new Produto('Geladeira', 5000);
+console.log(p2.nome);
+console.log(p2.preco);
+console.log(p2.precoFinal());
+
+p2.desc = 0.9
+console.log(p2.desc)
+console.log(p2.descString)
+```
 
 36. Conclusão do Módulo
 

@@ -561,6 +561,30 @@ gerarNumerosEntre(1,60)
 
 28. Desafio Promise - Resposta
 
+- [Bonus-curso-cursocod3r/28-desafio.js](Bonus-curso-cursocod3r/28-desafio.js)
+
+```javascript
+const fs    = require('fs')
+const path  = require('path')
+
+function lerArquivo(caminho) {
+    return new Promise(resolve => {
+        fs.readFile(caminho, function (_, conteudo){
+            resolve(conteudo.toString());
+        })
+        console.log('Depois de ler o arquivo')
+    })
+}
+
+const caminho = path.join(__dirname, 'dados.txt');
+
+lerArquivo(caminho)
+    .then(conteudo  => conteudo .split('\n'))
+    .then(linhas    => linhas   .join(','))
+    .then(conteudo  => `O valor final é ${conteudo}`)
+    .then(console.log)
+```
+
 29. Promise #04
 
 30. Promise #05
